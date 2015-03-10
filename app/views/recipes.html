@@ -1,0 +1,19 @@
+
+<h1>Recipes</h1>
+<hr>
+
+<a ui-sref="newRecipe" class="btn btn-success">New Recipe</a>
+<br><br>
+
+<table class="table table-bordered">
+    <thead class="bg-primary">
+        <tr>
+            <th>Recipe</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="recipe in vm.recipes">
+            <td>{{recipe.name}}</td>
+        </tr>
+    </tbody>
+</table>

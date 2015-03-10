@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="RpApp">
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Recipe Pad</title>
+
+    <link rel="stylesheet" href="lib/flat-ui/dist/css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="lib/flat-ui/dist/css/flat-ui.min.css" />
+
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-embossed navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand">Recipe Pad</a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav">
+                <li><a href="javascript:void(0)" ui-sref="recipes">Home</a> </li>
+            </ul>
+        </div>
+    </div>
+</div><br><br>
+
+<div class="container">
+    <div ui-view></div>
+</div>
+
+
+<!-- Lib JS Files -->
+<script src="lib/jquery/dist/jquery.min.js"></script>
+<script src="lib/angular/angular.min.js"></script>
+<script src="lib/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="lib/flat-ui/dist/js/flat-ui.min.js"></script>
+
+<!-- angular Modules -->
+<script src="app/app.js"></script>
+
+<!-- angular Controllers -->
+<script src="app/controllers/recipesCtrl.js"></script>
+<script src="app/controllers/createRecipeCtrl.js"></script>
+
+<!-- angular Services -->
+<script src="app/services/recipeService.js"></script>
+<script src="app/services/recipesService.js"></script>
+
+</body>
+</html>

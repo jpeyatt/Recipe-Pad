@@ -1,0 +1,82 @@
+<div class="row">
+    <div class="col-md-6">
+        <h1>New Recipe</h1>
+    </div>
+    <div class="col-md-6">
+        <br/><br/>
+        <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-2">
+                <button class="btn btn-primary">Create</button>
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary">Clear</button>
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary">Cancel</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<hr><br />
+<div class="row">
+
+    <div class="col-md-5">
+        <h3 style="margin-top: 0;">Information</h3><br />
+        <form class="form-group">
+
+            <input class="form-control" placeholder="Recipe Name" /> <br />
+            <input ng-model="vm.selected" typeahead="genre for genre in vm.genres | filter:$viewValue" class="form-control" placeholder="Genre" /> <br />
+            <textarea class="form-control" placeholder="Description"></textarea> <br />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="Prep Time" />
+                        <span class="input-group-addon">minutes</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="Cook Time" />
+                        <span class="input-group-addon">minutes</span>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-6">
+        <h3 style="margin-top: 0;">Ingredients</h3><br />
+        <div class="row">
+            <div class="col-md-3">
+                <input class="form-control" placeholder="how much?" />
+            </div>
+            <div class="col-md-8">
+                <input class="form-control" placeholder="of what?" />
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-primary">add</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<hr />
+
+<h3>Directions</h3><br />
+
+<div class="row">
+    <div class="col-md-1">
+        <input class="form-control" placeholder="Step #" />
+    </div>
+    <div class="col-md-9">
+        <input class="form-control" placeholder="Instructions" />
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-primary">add</button>
+    </div>
+</div>

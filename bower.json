@@ -1,0 +1,17 @@
+{
+  "name": "RecipePad",
+  "version": "1.0",
+  "authors": [
+    "jpeyatt"
+  ],
+  "description": "Recipe Pad Bower Components",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
