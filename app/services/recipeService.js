@@ -1,4 +1,8 @@
 
-    RpApp.factory('RecipeService', function ($resource){
-            return $resource('http://localhost:8000/api/recipes/:id');
+    RpApp.factory('RecipeService', function ($http){
+            return {
+                get : function (id) {
+                    return $http.get('http://localhost:8000/api/recipes/' + id);
+                }
+            }
         });

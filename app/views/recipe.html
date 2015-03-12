@@ -1,0 +1,79 @@
+<br />
+
+<style>
+    .recipeTbl th, .ingredientsTbl td, .directionsTbl td {
+        padding-right: 22px;
+    }
+    .recipeTbl tr {
+        padding-top: 8px;
+    }
+    .ingredientsTbl td, .directionsTbl td {
+        vertical-align: top;
+    }
+
+</style>
+
+<div class="panel panel-success">
+
+    <div class="panel-heading">
+        <h4>{{vm.recipe.name}}</h4>
+    </div>
+
+    <div class="panel-body">
+        <div class="row">
+            <!-- General Info -->
+            <div class="col-md-3">
+                <br />
+                <table class="recipeTbl">
+                    <tr>
+                        <th>Genre </th>
+                        <td>{{vm.recipe.genre}}</td>
+                    </tr>
+                    <tr ng-show="vm.recipe.cookTime">
+                        <th>Cook Time </th>
+                        <td>{{vm.recipe.cookTime}} minutes</td>
+                    </tr>
+                    <tr ng-show="vm.recipe.prepTime">
+                        <th>Prep Time </th>
+                        <td>{{vm.recipe.prepTime}} minutes</td>
+                    </tr>
+                    <tr ng-show="vm.recipe.cookTime && vm.recipe.prepTime">
+                        <th>Ready In </th>
+                        <td>{{vm.recipe.prepTime + vm.recipe.cookTime}} minutes</td>
+                    </tr>
+
+                </table>
+            </div>
+
+            <!-- Ingredients -->
+            <div class="col-md-4">
+                <h5>Ingredients</h5><hr />
+                <table class="ingredientsTbl">
+                    <tr class="text-muted" ng-show="vm.ingredients.length == 0"><i>There are no ingredients to show.</i></tr>
+                    <tr ng-repeat="ingredient in vm.recipe.ingredients">
+                        <td>
+                            <li>{{ingredient.measurement}} {{ingredient.name}}</li>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Directions -->
+            <div class="col-md-5">
+                <h5>Directions</h5><hr />
+                <table class="directionsTbl">
+                    <tr class="text-muted" ng-show="vm.directions.length == 0"><i>There are no directions to show.</i></tr>
+                    <tr ng-repeat="direction in vm.recipe.directions">
+                        <td>{{direction.step}}. </td>
+                        <td>{{direction.instructions}}</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<button ui-sref="recipes" class="btn btn-info">Back</button>

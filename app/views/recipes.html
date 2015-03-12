@@ -9,11 +9,17 @@
     <thead class="bg-primary">
         <tr>
             <th>Recipe</th>
+            <th>Rating</th>
         </tr>
     </thead>
     <tbody>
         <tr ng-repeat="recipe in vm.recipes">
-            <td>{{recipe.name}}</td>
+            <td><a ui-sref="recipe({recipeId: recipe._id})">
+                {{recipe.name}}</a>
+            </td>
+            <td>
+                <rating ng-show="recipe.rating" ng-model="recipe.rating"  state-on="'fa fa-star'" state-off="'fa fa-star-o'" readonly="true"></rating>
+            </td>
         </tr>
     </tbody>
 </table>
