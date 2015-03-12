@@ -1,15 +1,31 @@
+<style>
+    .recipeListTbl td:last-child {
+        width: 8%;
+        vertical-align: bottom;
+    }
+    .recipes-header-row div:last-child {
+       margin-top: 60px;
+    }
+</style>
 
-<h1>Recipes</h1>
+<div class="row recipes-header-row">
+    <div class="col-md-10">
+        <h1>Recipes</h1>
+    </div>
+    <div class="col-md-2">
+        <a ui-sref="newRecipe" class="btn btn-primary">New Recipe</a>
+    </div>
+</div>
+
 <hr>
 
-<a ui-sref="newRecipe" class="btn btn-success">New Recipe</a>
-<br><br>
-
-<table class="table table-bordered table-hover">
+<table class="table table-bordered table-hover recipeListTbl">
     <thead class="bg-primary">
         <tr>
             <th>Recipe</th>
+            <th>Style</th>
             <th>Rating</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -17,8 +33,19 @@
             <td><a ui-sref="recipe({recipeId: recipe._id})">
                 {{recipe.name}}</a>
             </td>
+            <td>{{recipe.genre}}</td>
             <td>
                 <rating ng-show="recipe.rating" ng-model="recipe.rating"  state-on="'fa fa-star'" state-off="'fa fa-star-o'" readonly="true"></rating>
+            </td>
+            <td>
+                <div class="row">
+                    <div class="col-md-6">
+                        <a ui-sref="editRecipe({recipeId: recipe._id})"><i class="fa fa-edit"></i></a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="javascript:void(0)" ng-click="vm.deleteRecipe(recipe._id)"><i class="fa fa-trash-o"></i> </a>
+                    </div>
+                </div>
             </td>
         </tr>
     </tbody>

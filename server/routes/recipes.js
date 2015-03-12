@@ -45,8 +45,14 @@ router.route('/recipes/:id')
             if (err) {
                 res.send(err);
             }
-
             recipe.name = req.body.name;
+            recipe.genre = req.body.genre;
+            recipe.description = req.body.description;
+            recipe.prepTime = req.body.prepTime;
+            recipe.cookTime = req.body.cookTime;
+            recipe.rating = req.body.rating;
+            recipe.ingredients = req.body.ingredients;
+            recipe.directions = req.body.directions;
 
             recipe.save(function (err) {
                 if (err) {

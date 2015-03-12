@@ -13,18 +13,13 @@
 </style>
 
 <div class="row">
-    <div class="col-md-6">
-        <h2>New Recipe</h2>
+    <div class="col-md-9">
+        <h3><i>Editing:</i> {{vm.recipe.name}}</h3>
     </div>
-    <div class="col-md-6">
-        <br/><br/>
-        <div class="row">
-            <div class="col-md-5"></div>
-            <div class="col-md-7">
-                <button ng-click="vm.createRecipe(vm.newRecipe)" class="btn btn-lg btn-primary">Create</button>
-                <button ng-click="vm.cancelRecipe()" class="btn btn-lg btn-default">Cancel</button>
-            </div>
-        </div>
+    <div class="col-md-3">
+        <br/>
+        <button ng-click="vm.saveRecipe(vm.recipe)" class="btn btn-lg btn-primary">Save</button>
+        <button ng-click="vm.cancelRecipe()" class="btn btn-lg btn-default">Cancel</button>
     </div>
 </div>
 
@@ -38,20 +33,20 @@
         <h3 style="margin-top: 0;">Information</h3><br />
         <form class="form-group">
 
-            <input ng-model="vm.newRecipe.name" class="form-control" placeholder="Recipe Name" /> <br />
-            <input ng-model="vm.newRecipe.genre" typeahead="genre for genre in vm.genres | filter:$viewValue" class="form-control" placeholder="Genre" /> <br />
-            <textarea ng-model="vm.newRecipe.description" class="form-control" placeholder="Description"></textarea> <br />
+            <input ng-model="vm.recipe.name" class="form-control" placeholder="Recipe Name" /> <br />
+            <input ng-model="vm.recipe.genre" typeahead="genre for genre in vm.genres | filter:$viewValue" class="form-control" placeholder="Genre" /> <br />
+            <textarea ng-model="vm.recipe.description" class="form-control" placeholder="Description"></textarea> <br />
 
             <div class="row">
                 <div class="col-md-6">
                     <div class="input-group">
-                        <input ng-model="vm.newRecipe.prepTime" class="form-control" placeholder="Prep Time" />
+                        <input ng-model="vm.recipe.prepTime" class="form-control" placeholder="Prep Time" />
                         <span class="input-group-addon">minutes</span>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="input-group">
-                        <input ng-model="vm.newRecipe.cookTime" class="form-control" placeholder="Cook Time" />
+                        <input ng-model="vm.recipe.cookTime" class="form-control" placeholder="Cook Time" />
                         <span class="input-group-addon">minutes</span>
                     </div>
                 </div>
@@ -62,7 +57,7 @@
                     <td>How would you rate it? </td>
                     <td>
                         <div class="rating">
-                            <rating ng-model="vm.newRecipe.rating" max="5" state-on="'fa fa-star'" state-off="'fa fa-star-o'"  on-hover="vm.ratingHover(value)" on-leave="overStar = null"></rating>
+                            <rating ng-model="vm.recipe.rating" max="5" state-on="'fa fa-star'" state-off="'fa fa-star-o'"  on-hover="vm.ratingHover(value)" on-leave="overStar = null"></rating>
                         </div>
                     </td>
                 </tr>
@@ -88,12 +83,12 @@
             </div>
         </div><br/>
 
-        <div class="well-sm text-muted" ng-show="vm.newRecipe.ingredients.length == 0">
+        <div class="well-sm text-muted" ng-show="vm.recipe.ingredients.length == 0">
             <i>No ingredients have been added.</i>
         </div>
 
         <ul class="list-group">
-            <li ng-repeat="ingredient in vm.newRecipe.ingredients" class="list-group-item">
+            <li ng-repeat="ingredient in vm.recipe.ingredients" class="list-group-item">
                 <div class="row">
                     <div class="col-md-3">{{ingredient.measurement}}</div>
                     <div class="col-md-7">{{ingredient.name}}</div>
@@ -133,7 +128,7 @@
 </div><br/>
 
 <ul class="list-group">
-    <li ng-repeat="direction in vm.newRecipe.directions" class="list-group-item">
+    <li ng-repeat="direction in vm.recipe.directions" class="list-group-item">
         <div class="row">
             <div class="col-md-1"><span class="badge">{{direction.step}}</span></div>
             <div class="col-md-10">{{direction.instructions}}</div>
@@ -152,7 +147,7 @@
     </li>
 </ul>
 
-<div class="well-sm text-muted" ng-show="vm.newRecipe.directions.length == 0">
+<div class="well-sm text-muted" ng-show="vm.recipe.directions.length == 0">
     <i>No directions have been added.</i>
 </div>
 

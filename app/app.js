@@ -19,6 +19,11 @@ var RpApp = angular.module('RpApp', ['ui.router', 'ui.bootstrap', 'ngRoute'])
             url: '/new-recipe',
             templateUrl: 'app/views/createRecipe.html',
             controller: "CreateRecipeCtrl as vm"
+        })
+        .state('editRecipe', {
+            url: '/edit-recipe/:recipeId',
+            templateUrl: 'app/views/editRecipe.html',
+            controller: "EditRecipeCtrl as vm"
         });
 
 }]);
