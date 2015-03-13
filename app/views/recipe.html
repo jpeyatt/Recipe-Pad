@@ -10,33 +10,45 @@
     .ingredientsTbl td, .directionsTbl td {
         vertical-align: top;
     }
-    .recipe-panel {
-        padding: 0 12px 20px 12px;
+    .recipe-panel-body{
+        padding: 10px 30px 30px 30px;
     }
     .panel-heading > h3 {
         margin: 8px 0 8px 5px;
         font-size: 32px;
     }
-    
     .panel-heading {
         background-color: #1ABC9C!important;
         color: #ffffff!important;
     }
+    .rating {
+        font-size: 24px;
+    }
+    h5 > i, button > i {
+        padding-right: 10px;
+    }
+    .backBtn  {
+        font-size: 16px!important;
+    }
+
 
 </style>
 
 <div class="panel panel-default recipe-panel">
-
     <div class="panel-heading">
         <h3>{{vm.recipe.name}}</h3>
     </div>
 
-    <div class="panel-body">
+    <div class="panel-body recipe-panel-body">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-10">
                 <i class="text-muted">About this recipe:</i>
             </div>
+            <div class="col-md-2 rating">
+                <rating ng-show="vm.recipe.rating" ng-model="vm.recipe.rating"  state-on="'fa fa-star'" state-off="'fa fa-star-o'" readonly="true"></rating>
+            </div>
         </div>
+
         <div class="row">
 
             <div class="col-md-12">
@@ -68,9 +80,9 @@
 
             <!-- Ingredients -->
             <div class="col-md-5">
-                <h5>Ingredients</h5><hr />
+                <h5><i class="fa fa-list-alt"></i> Ingredients</h5><hr />
                 <table class="ingredientsTbl">
-                    <tr class="text-muted" ng-show="vm.recipe.ingredients.length == 0"><i>There are no ingredients to show.</i></tr>
+                    <!--<tr class="text-muted" ng-show="vm.recipe.ingredients.length == 0"><i>There are no ingredients to show.</i></tr>-->
                     <tr ng-repeat="ingredient in vm.recipe.ingredients">
                         <td>
                             <li>{{ingredient.measurement}} {{ingredient.name}}</li>
@@ -81,9 +93,9 @@
 
             <!-- Directions -->
             <div class="col-md-7">
-                <h5>Directions</h5><hr />
+                <h5><i class="fa fa-compass"></i> Directions</h5><hr />
                 <table class="directionsTbl">
-                    <tr class="text-muted" ng-show="vm.recipe.directions.length == 0"><i>There are no directions to show.</i></tr>
+                    <!--<tr class="text-muted" ng-if="vm.recipe.directions.length == 0"><i>There are no directions to show.</i></tr>-->
                     <tr ng-repeat="direction in vm.recipe.directions">
                         <td>{{direction.step}}. </td>
                         <td>{{direction.instructions}}</td>
@@ -97,4 +109,4 @@
 
 </div>
 
-<button ui-sref="recipes" class="btn btn-default">Back</button>
+<button ui-sref="recipes" class="btn btn-inverse backBtn"><i class="fa fa-arrow-circle-left"></i> <span>Back</span></button>
