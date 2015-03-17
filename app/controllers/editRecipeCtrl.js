@@ -1,5 +1,5 @@
 
-RpApp.controller('EditRecipeCtrl',['RecipeService', '$state', '$stateParams', function (RecipeService, $state, $stateParams) {
+RpApp.controller('EditRecipeCtrl',['RecipeService', '$state', '$stateParams', 'Genres', function (RecipeService, $state, $stateParams, Genres) {
     var vm = this;
     vm.recipeId = $stateParams.recipeId;
 
@@ -12,7 +12,7 @@ RpApp.controller('EditRecipeCtrl',['RecipeService', '$state', '$stateParams', fu
             console.log('Error: ' + err);
         });
 
-    vm.genres = ['African', 'American', 'Asian', 'Caribbean', 'European', 'Oceanian', 'Mexican', 'Chicken', 'Steak', 'Beef', 'Ham', 'Pasta'];
+    vm.genres = Genres;
 
     vm.addIngredient = function () {
         vm.recipe.ingredients.push({
@@ -50,7 +50,7 @@ RpApp.controller('EditRecipeCtrl',['RecipeService', '$state', '$stateParams', fu
             cookTime: recipe.cookTime,
             rating: recipe.rating,
             ingredients: recipe.ingredients,
-            directions: recipe.instructions
+            directions: recipe.directions
         }
         RecipeService.update(vm.recipeId, vm.updatedRecipe)
             .success(function (data) {

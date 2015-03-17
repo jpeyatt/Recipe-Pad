@@ -13,6 +13,7 @@
 </style>
 
 <div class="row">
+    <div class="panel panel-default panel-body">
     <div class="col-md-6">
         <h2>New Recipe</h2>
     </div>
@@ -26,15 +27,15 @@
             </div>
         </div>
     </div>
+        </div>
 </div>
-
-<hr><br />
 
 <!-- Recipe Information -->
 
 <div class="row">
 
     <div class="col-md-5">
+        <div class="panel panel-default panel-body">
         <h4 style="margin-top: 0;"><i class="fa fa-info-circle"></i> Information</h4><br />
         <form class="form-group">
 
@@ -69,18 +70,20 @@
             </table>
 
         </form>
+            </div>
     </div>
-    <div class="col-md-1"></div>
+
 
     <!-- Ingredients -->
 
-    <div class="col-md-6">
+    <div class="col-md-7">
+        <div class="panel panel-default panel-body">
         <h4 style="margin-top: 0;"><i class="fa fa-list-alt"></i> Ingredients</h4><br />
         <div class="row">
             <div class="col-md-3">
                 <input ng-model="vm.newIngredientMeasurement" class="form-control" placeholder="how much?" />
             </div>
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <input ng-model="vm.newIngredientName" class="form-control" placeholder="of what?" />
             </div>
             <div class="col-md-1">
@@ -112,22 +115,24 @@
             </li>
         </ul>
     </div>
-
 </div>
-<hr />
+</div>
+
 
 <!-- Directions -->
+
+<div class="panel panel-default panel-body">
 
 <h4><i class="fa fa-compass"></i> Directions</h4><br />
 
 <div class="row">
     <div class="col-md-1">
-        <input ng-model="vm.newDirectionStep" class="form-control" placeholder="Step #" />
+        <input ng-model="vm.newDirectionStep" class="form-control" placeholder="Step#" />
     </div>
-    <div class="col-md-9">
+    <div class="col-md-10">
         <input ng-model="vm.newDirectionInstructions" class="form-control" placeholder="Instructions" />
     </div>
-    <div class="col-md-2">
+    <div class="col-md-1">
         <button ng-click="vm.addDirection()" class="btn btn-primary">add</button>
     </div>
 </div><br/>
@@ -155,4 +160,4 @@
 <div class="well-sm text-muted" ng-show="vm.newRecipe.directions.length == 0">
     <i>No directions have been added.</i>
 </div>
-
+</div>

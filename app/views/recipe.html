@@ -13,9 +13,16 @@
     .recipe-panel-body{
         padding: 10px 30px 30px 30px;
     }
-    .panel-heading > h3 {
+    .panel-heading  h3 {
         margin: 8px 0 8px 5px;
         font-size: 32px;
+    }
+    .panel-heading h3 a {
+        color: #fff;
+    }
+    .panel-heading h3 a:hover {
+        color: #fff;
+        opacity: .9;
     }
     .panel-heading {
         background-color: #1ABC9C!important;
@@ -32,11 +39,20 @@
     }
 
 
+
 </style>
 
 <div class="panel panel-default recipe-panel">
     <div class="panel-heading">
-        <h3>{{vm.recipe.name}}</h3>
+        <div class="row">
+            <div class="col-md-11">
+                <h3>{{vm.recipe.name}}</h3>
+            </div>
+            <div class="col-md-1">
+                <h3><a ui-sref="editRecipe({recipeId: vm.recipe._id})"><i class="fa fa-edit"></i></a></h3>
+            </div>
+        </div>
+
     </div>
 
     <div class="panel-body recipe-panel-body">

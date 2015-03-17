@@ -1,10 +1,11 @@
 
-RpApp.controller('CreateRecipeCtrl',['RecipesService', '$state', function (RecipesService, $state) {
+RpApp.controller('CreateRecipeCtrl',['RecipesService', '$state', 'Genres', function (RecipesService, $state, Genres) {
     var vm = this;
 
     vm.newRecipe = {};
 
-    vm.genres = ['African', 'American', 'Asian', 'Caribbean', 'European', 'Oceanian', 'Mexican', 'Chicken', 'Steak', 'Beef', 'Ham', 'Pasta'];
+    vm.genres = Genres;
+
     vm.newRecipe.genre = undefined;
 
     vm.newRecipe.ingredients = [];
