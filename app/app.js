@@ -1,5 +1,5 @@
 
-var RpApp = angular.module('RpApp', ['ui.router', 'ui.bootstrap', 'ngRoute'])
+var RpApp = angular.module('RpApp', [ 'ngRoute', 'ui.router', 'ui.bootstrap'])
 
 .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/recipes');

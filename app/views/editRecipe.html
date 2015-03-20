@@ -20,7 +20,7 @@
         </div>
         <div class="col-md-3">
             <br/>
-            <button ng-click="vm.saveRecipe(vm.recipe)" class="btn btn-lg btn-primary">Save</button>
+            <button  ng-disabled="informationForm.$invalid" ng-click="vm.saveRecipe(vm.recipe)" class="btn btn-lg btn-primary">Save</button>
             <button ng-click="vm.cancelRecipe()" class="btn btn-lg btn-default">Cancel</button>
         </div>
     </div>
@@ -29,68 +29,71 @@
 <!-- Recipe Information -->
 <div class="row">
     <div class="col-md-5">
-        <div class="panel panel-default panel-body">
-            <h3 style="margin-top: 0;">Information</h3><br/>
-            <form class="form-group">
-                <input ng-model="vm.recipe.name" class="form-control" placeholder="Recipe Name"/> <br/>
-                <input ng-model="vm.recipe.genre" typeahead="genre for genre in vm.genres | filter:$viewValue"
-                       class="form-control" placeholder="Genre"/> <br/>
-                <textarea ng-model="vm.recipe.description" class="form-control" placeholder="Description"></textarea>
-                <br/>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="input-group">
-                            <input ng-model="vm.recipe.prepTime" class="form-control" placeholder="Prep Time"/>
-                            <span class="input-group-addon">minutes</span>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="input-group">
-                            <input ng-model="vm.recipe.cookTime" class="form-control" placeholder="Cook Time"/>
-                            <span class="input-group-addon">minutes</span>
-                        </div>
-                    </div>
-                </div>
-
-                <table class="ratingTbl">
-                    <tr>
-                        <td>How would you rate it?</td>
-                        <td>
-                            <div class="rating">
-                                <rating ng-model="vm.recipe.rating" max="5" state-on="'fa fa-star'"
-                                        state-off="'fa fa-star-o'" on-hover="vm.ratingHover(value)"
-                                        on-leave="overStar = null"></rating>
+        <form name="informationForm">
+            <div class="panel panel-default panel-body">
+                <h3 style="margin-top: 0;">Information</h3><br/>
+                <form class="form-group">
+                    <input ng-required="true" ng-model="vm.recipe.name" class="form-control" placeholder="Recipe Name"/> <br/>
+                    <input ng-model="vm.recipe.genre" typeahead="genre for genre in vm.genres | filter:$viewValue"
+                           class="form-control" placeholder="Genre"/> <br/>
+                    <textarea ng-model="vm.recipe.description" class="form-control" placeholder="Description"></textarea>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <input ng-model="vm.recipe.prepTime" class="form-control" placeholder="Prep Time"/>
+                                <span class="input-group-addon">minutes</span>
                             </div>
-                        </td>
-                    </tr>
-                </table>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <input ng-model="vm.recipe.cookTime" class="form-control" placeholder="Cook Time"/>
+                                <span class="input-group-addon">minutes</span>
+                            </div>
+                        </div>
+                    </div>
 
-            </form>
-        </div>
+                    <table class="ratingTbl">
+                        <tr>
+                            <td>How would you rate it?</td>
+                            <td>
+                                <div class="rating">
+                                    <rating ng-model="vm.recipe.rating" max="5" state-on="'fa fa-star'"
+                                            state-off="'fa fa-star-o'" on-hover="vm.ratingHover(value)"
+                                            on-leave="overStar = null"></rating>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                </form>
+            </div>
+        </form>
     </div>
 
     <!-- Ingredients -->
     <div class="col-md-7">
-        <div class="panel panel-default panel-body">
-            <h3 style="margin-top: 0;">Ingredients</h3><br/>
 
-            <div class="row">
-                <div class="col-md-3">
-                    <input ng-model="vm.newIngredientMeasurement" class="form-control" placeholder="how much?"/>
+        <div class="panel panel-default panel-body">
+            <form name="ingredientsForm">
+                <h3 style="margin-top: 0;">Ingredients</h3><br/>
+                <div class="row">
+                    <div class="col-md-3">
+                        <input ng-required="true" ng-model="vm.newIngredientMeasurement" class="form-control" placeholder="how much?"/>
+                    </div>
+                    <div class="col-md-7">
+                        <input ng-required="true" ng-model="vm.newIngredientName" class="form-control" placeholder="of what?"/>
+                    </div>
+                    <div class="col-md-1">
+                        <button ng-disabled="ingredientsForm.$invalid" ng-click="vm.addIngredient()" class="btn btn-primary">add</button>
+                    </div>
                 </div>
-                <div class="col-md-7">
-                    <input ng-model="vm.newIngredientName" class="form-control" placeholder="of what?"/>
-                </div>
-                <div class="col-md-1">
-                    <button ng-click="vm.addIngredient()" class="btn btn-primary">add</button>
-                </div>
-            </div>
+            </form>
             <br/>
 
             <div class="well-sm text-muted" ng-show="vm.recipe.ingredients.length == 0">
                 <i>No ingredients have been added.</i>
             </div>
-
 
             <ul class="list-group">
                 <li ng-repeat="ingredient in vm.recipe.ingredients" class="list-group-item">
@@ -118,19 +121,21 @@
 
 <!-- Directions -->
 <div class="panel panel-default panel-body">
-    <h3>Directions</h3><br/>
-    <div class="row">
-        <div class="col-md-1">
-            <input ng-model="vm.newDirectionStep" class="form-control" placeholder="Step#"/>
-        </div>
-        <div class="col-md-10">
-            <input ng-model="vm.newDirectionInstructions" class="form-control" placeholder="Instructions"/>
-        </div>
-        <div class="col-md-1">
-            <button ng-click="vm.addDirection()" class="btn btn-primary">add</button>
-        </div>
-    </div>
 
+    <form name="directionsForm">
+        <h3 style="margin-top: 0;">Directions</h3><br/>
+        <div class="row">
+            <div class="col-md-1">
+                <input id="directionStep" ng-required="true" ng-model="vm.newDirectionStep" title="This must be a number"  class="form-control" placeholder="Step#"/>
+            </div>
+            <div class="col-md-10">
+                <input ng-required="true" ng-model="vm.newDirectionInstructions" class="form-control" placeholder="Instructions"/>
+            </div>
+            <div class="col-md-1">
+                <button ng-disabled="directionsForm.$invalid" ng-click="vm.addDirection()" class="btn btn-primary">add</button>
+            </div>
+        </div>
+    </form>
     <br>
 
     <ul class="list-group">
@@ -147,7 +152,6 @@
                             </a>
                         </div>
                     </div>
-
                 </div>
             </div>
         </li>
@@ -157,3 +161,9 @@
         <i>No directions have been added.</i>
     </div>
 </div>
+
+<script>
+    $(function () {
+        $("#directionStep").tooltip('hide');
+    });
+</script>

@@ -13,8 +13,9 @@
         body {
             background-color: #ffffff;
             background-image: url(http://www.transparenttextures.com/patterns/lined-paper-2.png);
-            /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
         }
+        .ng-enter           { animation: scaleUp 0.5s both ease-in; z-index: 8888; }
+        .ng-leave           { animation: slideOutLeft 0.5s both ease-in; z-index: 9999; }
     </style>
 
 </head>
@@ -47,11 +48,11 @@
 <!-- Lib JS Files -->
 <script src="lib/jquery/dist/jquery.min.js"></script>
 <script src="lib/angular/angular.min.js"></script>
-
 <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
 <script src="lib/angular-bootstrap/ui-bootstrap.min.js"></script>
 <script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 <script src="lib/angular-route/angular-route.min.js"></script>
+
 <script src="lib/flat-ui/dist/js/flat-ui.min.js"></script>
 
 <!-- angular Modules -->
@@ -62,6 +63,7 @@
 <script src="app/controllers/recipeCtrl.js"></script>
 <script src="app/controllers/createRecipeCtrl.js"></script>
 <script src="app/controllers/editRecipeCtrl.js"></script>
+
 
 <!-- angular Services -->
 <script src="app/services/recipeService.js"></script>

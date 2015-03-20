@@ -35,10 +35,8 @@ RpApp.controller('EditRecipeCtrl',['RecipeService', '$state', '$stateParams', 'G
         vm.newDirectionInstructions = '';
     };
     vm.deleteDirection = function (index) {
-        vm.recipe.directions.splice(index);
+        vm.recipe.directions.splice(index, 1);
     };
-
-
 
     vm.saveRecipe = function (recipe) {
 

@@ -1,14 +1,18 @@
 <style>
     .rating {
-
         font-size: 30px;
     }
     .ratingTbl td:last-child {
         padding: 30px 0 0 20px;
     }
-
     .ratingTbl td:first-child {
         padding: 40px 0 0 0;
+    }
+    .createRecipeBtn {
+        margin-right: 10px
+    }
+    h4 i {
+        padding-right: 8px;
     }
 </style>
 
@@ -20,9 +24,9 @@
     <div class="col-md-6">
         <br/><br/>
         <div class="row">
-            <div class="col-md-5"></div>
-            <div class="col-md-7">
-                <button ng-click="vm.createRecipe(vm.newRecipe)" class="btn btn-lg btn-primary">Create</button>
+            <div class="col-md-7"></div>
+            <div class="col-md-5">
+                <button ng-disabled="informationForm.$invalid" ng-click="vm.createRecipe(vm.newRecipe)" class="btn btn-lg btn-primary createRecipeBtn">Create</button>
                 <button ng-click="vm.cancelRecipe()" class="btn btn-lg btn-default">Cancel</button>
             </div>
         </div>
@@ -35,11 +39,11 @@
 <div class="row">
 
     <div class="col-md-5">
-        <div class="panel panel-default panel-body">
+        <form name="informationForm">
+            <div class="panel panel-default panel-body">
         <h4 style="margin-top: 0;"><i class="fa fa-info-circle"></i> Information</h4><br />
-        <form class="form-group">
 
-            <input ng-model="vm.newRecipe.name" class="form-control" placeholder="Recipe Name" /> <br />
+            <input ng-required="true" ng-model="vm.newRecipe.name" class="form-control" placeholder="Recipe Name" /> <br />
             <input ng-model="vm.newRecipe.genre" typeahead="genre for genre in vm.genres | filter:$viewValue" class="form-control" placeholder="Genre" /> <br />
             <textarea ng-model="vm.newRecipe.description" class="form-control" placeholder="Description"></textarea> <br />
 
@@ -69,27 +73,31 @@
                 </tr>
             </table>
 
-        </form>
             </div>
+        </form>
     </div>
 
 
     <!-- Ingredients -->
 
     <div class="col-md-7">
+
         <div class="panel panel-default panel-body">
-        <h4 style="margin-top: 0;"><i class="fa fa-list-alt"></i> Ingredients</h4><br />
-        <div class="row">
-            <div class="col-md-3">
-                <input ng-model="vm.newIngredientMeasurement" class="form-control" placeholder="how much?" />
-            </div>
-            <div class="col-md-7">
-                <input ng-model="vm.newIngredientName" class="form-control" placeholder="of what?" />
-            </div>
-            <div class="col-md-1">
-                <button ng-click="vm.addIngredient()" class="btn btn-primary">add</button>
-            </div>
-        </div><br/>
+            <form name="ingredientsForm">
+                <h4 style="margin-top: 0;"><i class="fa fa-list-alt"></i> Ingredients</h4><br />
+                <div class="row">
+                    <div class="col-md-3">
+                        <input ng-required="true" ng-model="vm.newIngredientMeasurement" class="form-control" placeholder="how much?" />
+                    </div>
+                    <div class="col-md-7">
+                        <input ng-required="true" ng-model="vm.newIngredientName" class="form-control" placeholder="of what?" />
+                    </div>
+                    <div class="col-md-1">
+                        <button ng-disabled="ingredientsForm.$invalid" ng-click="vm.addIngredient()" class="btn btn-primary">add</button>
+                    </div>
+                </div>
+            </form>
+        <br/>
 
         <div class="well-sm text-muted" ng-show="vm.newRecipe.ingredients.length == 0">
             <i>No ingredients have been added.</i>
@@ -118,27 +126,28 @@
 </div>
 </div>
 
-
 <!-- Directions -->
 
 <div class="panel panel-default panel-body">
 
-<h4><i class="fa fa-compass"></i> Directions</h4><br />
-
-<div class="row">
-    <div class="col-md-1">
-        <input ng-model="vm.newDirectionStep" class="form-control" placeholder="Step#" />
+<form name="directionsForm">
+    <h4><i class="fa fa-compass"></i> Directions</h4><br />
+    <div class="row">
+        <div class="col-md-1">
+            <input id="directionStep" title="This must be a number" ng-required="true" ng-model="vm.newDirectionStep" class="form-control" placeholder="Step#" />
+        </div>
+        <div class="col-md-10">
+            <input ng-required="true" ng-model="vm.newDirectionInstructions" class="form-control" placeholder="Instructions" />
+        </div>
+        <div class="col-md-1">
+            <button ng-disabled="directionsForm.$invalid" ng-click="vm.addDirection()" class="btn btn-primary">add</button>
+        </div>
     </div>
-    <div class="col-md-10">
-        <input ng-model="vm.newDirectionInstructions" class="form-control" placeholder="Instructions" />
-    </div>
-    <div class="col-md-1">
-        <button ng-click="vm.addDirection()" class="btn btn-primary">add</button>
-    </div>
-</div><br/>
+</form>
+    <br/>
 
 <ul class="list-group">
-    <li ng-repeat="direction in vm.newRecipe.directions" class="list-group-item">
+    <li ng-repeat="direction in vm.newRecipe.directions | orderBy: 'step'" class="list-group-item">
         <div class="row">
             <div class="col-md-1"><span class="badge">{{direction.step}}</span></div>
             <div class="col-md-10">{{direction.instructions}}</div>
@@ -151,7 +160,6 @@
                         </a>
                     </div>
                 </div>
-
             </div>
         </div>
     </li>
@@ -161,3 +169,9 @@
     <i>No directions have been added.</i>
 </div>
 </div>
+
+<script>
+    $(function () {
+        $("#directionStep").tooltip('hide');
+    });
+</script>

@@ -19,7 +19,9 @@
                     .success(function (data) {
                         console.log('Recipe deleted successfully');
                         vm.loadRecipes();
+                        $('.modal-backdrop').fadeOut();
                     });
+
             };
 
         vm.loadRecipes();

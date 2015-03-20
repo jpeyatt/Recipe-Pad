@@ -29,7 +29,7 @@
         color: #ffffff!important;
     }
     .rating {
-        font-size: 24px;
+        font-size: 28px;
     }
     h5 > i, button > i {
         padding-right: 10px;
@@ -97,8 +97,8 @@
             <!-- Ingredients -->
             <div class="col-md-5">
                 <h5><i class="fa fa-list-alt"></i> Ingredients</h5><hr />
+                <p ng-show="vm.recipe.ingredients.length == 0"><i class="text-muted">No ingredients have been added.</i></p>
                 <table class="ingredientsTbl">
-                    <!--<tr class="text-muted" ng-show="vm.recipe.ingredients.length == 0"><i>There are no ingredients to show.</i></tr>-->
                     <tr ng-repeat="ingredient in vm.recipe.ingredients">
                         <td>
                             <li>{{ingredient.measurement}} {{ingredient.name}}</li>
@@ -110,8 +110,8 @@
             <!-- Directions -->
             <div class="col-md-7">
                 <h5><i class="fa fa-compass"></i> Directions</h5><hr />
+                <p ng-show="vm.recipe.directions.length == 0"><i class="text-muted">No directions have been added.</i></p>
                 <table class="directionsTbl">
-                    <!--<tr class="text-muted" ng-if="vm.recipe.directions.length == 0"><i>There are no directions to show.</i></tr>-->
                     <tr ng-repeat="direction in vm.recipe.directions">
                         <td>{{direction.step}}. </td>
                         <td>{{direction.instructions}}</td>

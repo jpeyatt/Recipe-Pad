@@ -31,7 +31,7 @@ RpApp.controller('CreateRecipeCtrl',['RecipesService', '$state', 'Genres', funct
         vm.newDirectionInstructions = '';
     };
     vm.deleteDirection = function (index) {
-       vm.newRecipe.directions.splice(index);
+       vm.newRecipe.directions.splice(index, 1);
     };
 
     vm.createRecipe = function (newRecipe) {
