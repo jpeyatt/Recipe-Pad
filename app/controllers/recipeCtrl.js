@@ -11,5 +11,9 @@ RpApp.controller('RecipeCtrl',['RecipeService', '$state', '$stateParams', functi
             console.log('Error: ' + err);
         });
 
+    vm.goBack = function () {
+        $state.go('recipes');
+        $('html,body').scrollTop(0);
+    };
 
 }]);
