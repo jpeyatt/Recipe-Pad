@@ -1,46 +1,4 @@
-<br />
-
-<style>
-    .recipeTbl th, .ingredientsTbl td, .directionsTbl td {
-        padding-right: 22px;
-    }
-    .recipeTbl tr {
-        padding-top: 8px;
-    }
-    .ingredientsTbl td, .directionsTbl td {
-        vertical-align: top;
-    }
-    .recipe-panel-body{
-        padding: 10px 30px 30px 30px;
-    }
-    .panel-heading  h3 {
-        margin: 8px 0 8px 5px;
-        font-size: 32px;
-    }
-    .panel-heading h3 a {
-        color: #fff;
-    }
-    .panel-heading h3 a:hover {
-        color: #fff;
-        opacity: .9;
-    }
-    .panel-heading {
-        background-color: #1ABC9C!important;
-        color: #ffffff!important;
-    }
-    .rating {
-        font-size: 28px;
-    }
-    h5 > i, button > i {
-        padding-right: 10px;
-    }
-    .backBtn  {
-        font-size: 16px!important;
-    }
-
-
-
-</style>
+<br /><br />
 
 <div class="panel panel-default recipe-panel">
     <div class="panel-heading">
@@ -96,7 +54,7 @@
 
             <!-- Ingredients -->
             <div class="col-md-5">
-                <h5><i class="fa fa-list-alt"></i> Ingredients</h5><hr />
+                <h4><i class="fa fa-list-alt"></i> Ingredients</h4><hr />
                 <p ng-show="vm.recipe.ingredients.length == 0"><i class="text-muted">No ingredients have been added.</i></p>
                 <table class="ingredientsTbl">
                     <tr ng-repeat="ingredient in vm.recipe.ingredients">
@@ -109,7 +67,7 @@
 
             <!-- Directions -->
             <div class="col-md-7">
-                <h5><i class="fa fa-compass"></i> Directions</h5><hr />
+                <h4><i class="fa fa-compass"></i> Directions</h4><hr />
                 <p ng-show="vm.recipe.directions.length == 0"><i class="text-muted">No directions have been added.</i></p>
                 <table class="directionsTbl">
                     <tr ng-repeat="direction in vm.recipe.directions">
@@ -126,3 +84,4 @@
 </div>
 
 <button ui-sref="recipes" class="btn btn-inverse backBtn"><i class="fa fa-arrow-circle-left"></i> <span>Back</span></button>
+<br /><br />

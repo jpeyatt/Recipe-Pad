@@ -1,6 +1,7 @@
 
     RpApp.controller('RecipesCtrl',['RecipesService', 'RecipeService', function (RecipesService, RecipeService) {
-            var vm = this;
+        var vm = this;
+        vm.pageClass = 'page-recipes';
 
         vm.loadRecipes = function () {
             RecipesService.get()

@@ -6,17 +6,11 @@
     <title>Recipe Pad</title>
 
     <link rel="stylesheet" href="lib/flat-ui/dist/css/vendor/bootstrap.min.css" />
-    <link rel="stylesheet" href="lib/flat-ui/dist/css/flat-ui.min.css" />
+    <link rel="stylesheet" href="app/content/app.css" />
     <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="lib/animate.css" />
 
-    <style>
-        body {
-            background-color: #ffffff;
-            background-image: url(http://www.transparenttextures.com/patterns/lined-paper-2.png);
-        }
-        .ng-enter           { animation: scaleUp 0.5s both ease-in; z-index: 8888; }
-        .ng-leave           { animation: slideOutLeft 0.5s both ease-in; z-index: 9999; }
-    </style>
+    <link href='http://fonts.googleapis.com/css?family=Marck+Script' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
@@ -33,26 +27,46 @@
         </div>
         <div class="navbar-collapse collapse" id="navbar-main">
             <ul class="nav navbar-nav">
-                <li><a href="javascript:void(0)" ui-sref="recipes">Home</a> </li>
+                <!--<li><a href="javascript:void(0)" ui-sref="recipes">Home</a> </li>-->
             </ul>
         </div>
     </div>
-</div><br><br>
-
-<div class="container">
-    <div ui-view></div>
 </div>
 
-<br/><br/><br/><br/>
+<div id="mainWrapper">
+    <div id="mainContainer" class="container">
+        <div id="mainUI" ui-view></div>
+    </div>
+
+</div>
+
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                Created by <a href="mailto:justinpeyatt@gmail.com">Justin Peyatt</a>
+            </div>
+            <div class="col-md-6">
+                <div class="row socialIcons pull-right">
+                    <a href="#"><i class="fa fa-github-square"></i></a>
+                    <a href="#"><i class="fa fa-twitter-square"></i></a>
+                    <a href="#"><i class="fa fa-facebook-square"></i></a>
+                    <a href="#"><i class="fa fa-google-plus-square"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Lib JS Files -->
 <script src="lib/jquery/dist/jquery.min.js"></script>
 <script src="lib/angular/angular.min.js"></script>
+<script src="lib/angular-sanitize/angular-sanitize.js"></script>
 <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
 <script src="lib/angular-bootstrap/ui-bootstrap.min.js"></script>
 <script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 <script src="lib/angular-route/angular-route.min.js"></script>
-
+<script src="lib/angular-animate/angular-animate.js"></script>
 <script src="lib/flat-ui/dist/js/flat-ui.min.js"></script>
 
 <!-- angular Modules -->

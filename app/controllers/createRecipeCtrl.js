@@ -1,6 +1,7 @@
 
 RpApp.controller('CreateRecipeCtrl',['RecipesService', '$state', 'Genres', function (RecipesService, $state, Genres) {
     var vm = this;
+    vm.pageClass = 'page-createRecipe';
 
     vm.newRecipe = {};
 

@@ -1,37 +1,27 @@
-<style>
-    .rating {
-
-        font-size: 30px;
-    }
-
-    .ratingTbl td:last-child {
-        padding: 30px 0 0 20px;
-    }
-
-    .ratingTbl td:first-child {
-        padding: 40px 0 0 0;
-    }
-</style>
-
-<div class="panel panel-default panel-body">
-    <div class="row">
-        <div class="col-md-9">
-            <h3><i>Editing:</i> {{vm.recipe.name}}</h3>
-        </div>
-        <div class="col-md-3">
-            <br/>
-            <button  ng-disabled="informationForm.$invalid" ng-click="vm.saveRecipe(vm.recipe)" class="btn btn-lg btn-primary">Save</button>
-            <button ng-click="vm.cancelRecipe()" class="btn btn-lg btn-default">Cancel</button>
+<div class="row">
+    <div class="col-md-9">
+        <h2>{{vm.recipe.name}}</h2>
+    </div>
+    <div class="col-md-3">
+        <br/><br/>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-9">
+                <button  ng-disabled="informationForm.$invalid" ng-click="vm.saveRecipe(vm.recipe)" class="btn btn-lg btn-primary">Save</button>
+                <button ng-click="vm.cancelRecipe()" class="btn btn-lg btn-default">Cancel</button>
+            </div>
         </div>
     </div>
 </div>
+
+<hr />
 
 <!-- Recipe Information -->
 <div class="row">
     <div class="col-md-5">
         <form name="informationForm">
             <div class="panel panel-default panel-body">
-                <h3 style="margin-top: 0;">Information</h3><br/>
+                <h4 style="margin-top: 0;"><i class="fa fa-info-circle"></i> Information</h4><br />
                 <form class="form-group">
                     <input ng-required="true" ng-model="vm.recipe.name" class="form-control" placeholder="Recipe Name"/> <br/>
                     <input ng-model="vm.recipe.genre" typeahead="genre for genre in vm.genres | filter:$viewValue"
@@ -76,7 +66,7 @@
 
         <div class="panel panel-default panel-body">
             <form name="ingredientsForm">
-                <h3 style="margin-top: 0;">Ingredients</h3><br/>
+                <h4 style="margin-top: 0;"><i class="fa fa-list-alt"></i> Ingredients</h4><br />
                 <div class="row">
                     <div class="col-md-3">
                         <input ng-required="true" ng-model="vm.newIngredientMeasurement" class="form-control" placeholder="how much?"/>
@@ -123,7 +113,7 @@
 <div class="panel panel-default panel-body">
 
     <form name="directionsForm">
-        <h3 style="margin-top: 0;">Directions</h3><br/>
+        <h4><i class="fa fa-compass"></i> Directions</h4><br />
         <div class="row">
             <div class="col-md-1">
                 <input id="directionStep" ng-required="true" ng-model="vm.newDirectionStep" title="This must be a number"  class="form-control" placeholder="Step#"/>
