@@ -1,5 +1,5 @@
 
-    RpApp.factory('RecipesService', function ($http) {
+    RpApp.factory('RecipesService', ['$http', function ($http) {
             return {
                 get : function () {
                     return $http.get('http://localhost:8000/api/recipes');
@@ -8,4 +8,4 @@
                     return $http.post('http://localhost:8000/api/recipes', recipeData);
                 }
             };
-        });
+        }]);

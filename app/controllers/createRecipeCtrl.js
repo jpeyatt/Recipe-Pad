@@ -1,12 +1,9 @@
 
-RpApp.controller('CreateRecipeCtrl',['RecipesService', '$state', 'Genres', function (RecipesService, $state, Genres) {
+RpApp.controller('CreateRecipeCtrl',['RecipesService', '$state', 'Genres', 'Notification', function (RecipesService, $state, Genres, Notification) {
     var vm = this;
-    vm.pageClass = 'page-createRecipe';
 
     vm.newRecipe = {};
-
     vm.genres = Genres;
-
     vm.newRecipe.genre = undefined;
 
     vm.newRecipe.ingredients = [];
@@ -49,7 +46,8 @@ RpApp.controller('CreateRecipeCtrl',['RecipesService', '$state', 'Genres', funct
 
         RecipesService.create(newRecipeParams)
             .success(function (data) {
-                console.log('Recipe successfully created: ' + data);
+                //console.log('Recipe successfully created: ' + data);
+                Notification.primary({message: 'Recipe successfully created.', delay: 2000});
                 $state.go('recipes');
             })
             .error(function (err) {

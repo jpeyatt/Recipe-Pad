@@ -6086,10 +6086,45 @@ footer p {
 .mal {
   margin-left: 20px;
 }
+/**** VARIABLES ****/
+/**** GlOBAL ****/
 body {
   background-color: #ffffff;
   background-image: url(http://www.transparenttextures.com/patterns/45-degree-fabric-light.png);
 }
+html,
+body,
+#mainContainer,
+#mainUI {
+  height: 100%;
+}
+h2,
+h3 {
+  margin-top: 50px;
+  margin-bottom: 0;
+}
+h4 i {
+  padding-right: 8px;
+}
+/* .ng-leave to add fadeout effect */
+.ng-enter {
+  -webkit-animation: fadeIn 0.5s;
+  -moz-animation: fadeIn 0.5s;
+  -o-animation: fadeIn 0.5s;
+  animation: fadeIn 0.5s;
+}
+#mainContainer {
+  background: #ffffff;
+  margin-top: 35px;
+  box-shadow: 0px 0px 8px 1px #888888;
+}
+#mainUI {
+  min-height: 1000px;
+}
+#mainWrapper {
+  min-height: 100%;
+}
+/**** NAVIGATION ****/
 .navbar {
   border-bottom: 4px solid #48c9b0;
 }
@@ -6100,11 +6135,7 @@ h3,
 h4 {
   font-family: 'Marck Script', cursive;
 }
-h2,
-h3 {
-  margin-top: 50px;
-  margin-bottom: 0;
-}
+/**** FOOTER ****/
 .footer {
   background: #34495e;
   color: #ffffff;
@@ -6119,30 +6150,7 @@ h3 {
   font-size: 30px;
   padding-left: 10px;
 }
-/* .ng-leave to add fadeout effect */
-.ng-enter {
-  -webkit-animation: fadeIn 0.5s;
-  -moz-animation: fadeIn 0.5s;
-  -o-animation: fadeIn 0.5s;
-  animation: fadeIn 0.5s;
-}
-#mainContainer {
-  background: #ffffff;
-  margin-top: 35px;
-  box-shadow: 0px 0px 8px 1px #888888;
-}
-html,
-body,
-#mainContainer,
-#mainUI {
-  height: 100%;
-}
-#mainUI {
-  min-height: 1000px;
-}
-#mainWrapper {
-  min-height: 100%;
-}
+/**** RATING ****/
 .rating {
   font-size: 30px;
 }
@@ -6151,12 +6159,6 @@ body,
 }
 .ratingTbl td:first-child {
   padding: 40px 0 0 0;
-}
-h4 i {
-  padding-right: 8px;
-}
-.createRecipeBtn {
-  margin-right: 10px;
 }
 .recipeTbl th,
 .ingredientsTbl td,
@@ -6170,6 +6172,7 @@ h4 i {
 .directionsTbl td {
   vertical-align: top;
 }
+/**** PANELS ****/
 .recipe-panel-body {
   padding: 10px 30px 30px 30px;
 }
@@ -6188,9 +6191,15 @@ h4 i {
   background-color: #1ABC9C!important;
   color: #ffffff!important;
 }
-.rating {
-  font-size: 28px;
+/**** MODALS ****/
+#deleteConfirmationModal .modal-body,
+#deleteConfirmationModal .modal-footer {
+  text-align: center;
 }
+/**** BUTTONS ****/
 .backBtn {
   font-size: 16px!important;
+}
+.createRecipeBtn {
+  margin-right: 10px;
 }

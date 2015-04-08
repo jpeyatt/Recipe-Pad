@@ -1,5 +1,5 @@
 
-RpApp.controller('EditRecipeCtrl',['RecipeService', '$state', '$stateParams', 'Genres', function (RecipeService, $state, $stateParams, Genres) {
+RpApp.controller('EditRecipeCtrl',['RecipeService', '$state', '$stateParams', 'Genres', 'Notification', function (RecipeService, $state, $stateParams, Genres, Notification) {
     var vm = this;
     vm.recipeId = $stateParams.recipeId;
 
@@ -52,7 +52,7 @@ RpApp.controller('EditRecipeCtrl',['RecipeService', '$state', '$stateParams', 'G
         }
         RecipeService.update(vm.recipeId, vm.updatedRecipe)
             .success(function (data) {
-                console.log('Recipe Updated! ' + data);
+                Notification.primary({message: 'Recipe updated', delay: 2000});
                 $state.go('recipes');
             })
             .error(function (err) {

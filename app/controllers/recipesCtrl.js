@@ -1,5 +1,5 @@
 
-    RpApp.controller('RecipesCtrl',['RecipesService', 'RecipeService', function (RecipesService, RecipeService) {
+    RpApp.controller('RecipesCtrl',['RecipesService', 'RecipeService', 'Notification', function (RecipesService, RecipeService, Notification) {
         var vm = this;
         vm.pageClass = 'page-recipes';
 
@@ -13,12 +13,10 @@
                 });
         };
 
-
-        
             vm.deleteRecipe = function (id) {
                 RecipeService.delete(id)
                     .success(function (data) {
-                        console.log('Recipe deleted successfully');
+                        Notification.primary({message: 'Recipe deleted successfully', delay: 2000});
                         vm.loadRecipes();
                         $('.modal-backdrop').fadeOut();
                     });

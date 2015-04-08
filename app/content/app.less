@@ -1,20 +1,21 @@
 @import "../../lib/flat-ui/less/flat-ui";
 
+/**** VARIABLES ****/
+
 @main-green: #48c9b0;
 @main-blue: #34495e;
 @ng-enter: fadeIn .5s;
+
+
+/**** GlOBAL ****/
 
 body {
   background-color: #ffffff;
   background-image: url(http://www.transparenttextures.com/patterns/45-degree-fabric-light.png);
 }
 
-.navbar {
-  border-bottom: 4px solid @main-green;
-}
-
-.navbar-brand, h1, h2, h3, h4 {
-  font-family: 'Marck Script', cursive;
+html, body, #mainContainer, #mainUI {
+  height: 100%;
 }
 
 h2, h3 {
@@ -22,19 +23,8 @@ h2, h3 {
   margin-bottom: 0;
 }
 
-.footer {
-  background: @main-blue;
-  color: #ffffff;
-  padding: 20px 10px 20px 10px;
-  border-top: 5px solid @main-green;
-  .socialIcons {
-    padding-right: 20px;
-    line-height: 1em;
-    i {
-      font-size: 30px;
-      padding-left: 10px;
-    }
-  }
+h4 i {
+  padding-right: 8px;
 }
 
 /* .ng-leave to add fadeout effect */
@@ -51,10 +41,6 @@ h2, h3 {
   box-shadow: 0px 0px 8px 1px #888888;
 }
 
-html, body, #mainContainer, #mainUI {
-  height: 100%;
-}
-
 #mainUI {
   min-height: 1000px;
 }
@@ -62,6 +48,38 @@ html, body, #mainContainer, #mainUI {
 #mainWrapper {
   min-height: 100%;
 }
+
+
+/**** NAVIGATION ****/
+
+.navbar {
+  border-bottom: 4px solid @main-green;
+}
+
+.navbar-brand, h1, h2, h3, h4 {
+  font-family: 'Marck Script', cursive;
+}
+
+
+/**** FOOTER ****/
+
+.footer {
+  background: @main-blue;
+  color: #ffffff;
+  padding: 20px 10px 20px 10px;
+  border-top: 5px solid @main-green;
+  .socialIcons {
+    padding-right: 20px;
+    line-height: 1em;
+    i {
+      font-size: 30px;
+      padding-left: 10px;
+    }
+  }
+}
+
+
+/**** RATING ****/
 
 .rating {
   font-size: 30px;
@@ -76,45 +94,61 @@ html, body, #mainContainer, #mainUI {
   }
 }
 
-h4 i {
-  padding-right: 8px;
+.recipeTbl th, .ingredientsTbl td, .directionsTbl td {
+  padding-right: 22px;
+}
+
+.recipeTbl tr {
+  padding-top: 8px;
+}
+
+.ingredientsTbl td, .directionsTbl td {
+  vertical-align: top;
+}
+
+
+/**** PANELS ****/
+
+.recipe-panel-body{
+  padding: 10px 30px 30px 30px;
+}
+
+.panel-heading  h3 {
+  margin: 8px 0 8px 5px;
+  font-size: 28px;
+}
+
+.panel-heading h3 a {
+  color: #fff;
+}
+
+.panel-heading h3 a:hover {
+  color: #fff;
+  opacity: .9;
+}
+
+.panel-heading {
+  background-color: #1ABC9C!important;
+  color: #ffffff!important;
+}
+
+
+/**** MODALS ****/
+
+#deleteConfirmationModal {
+  .modal-body, .modal-footer {
+    text-align: center;
+  }
+}
+
+
+/**** BUTTONS ****/
+
+.backBtn  {
+  font-size: 16px!important;
 }
 
 .createRecipeBtn {
   margin-right: 10px
 }
 
-.recipeTbl th, .ingredientsTbl td, .directionsTbl td {
-  padding-right: 22px;
-}
-.recipeTbl tr {
-  padding-top: 8px;
-}
-.ingredientsTbl td, .directionsTbl td {
-  vertical-align: top;
-}
-.recipe-panel-body{
-  padding: 10px 30px 30px 30px;
-}
-.panel-heading  h3 {
-  margin: 8px 0 8px 5px;
-  font-size: 28px;
-}
-.panel-heading h3 a {
-  color: #fff;
-}
-.panel-heading h3 a:hover {
-  color: #fff;
-  opacity: .9;
-}
-.panel-heading {
-  background-color: #1ABC9C!important;
-  color: #ffffff!important;
-}
-.rating {
-  font-size: 28px;
-}
-
-.backBtn  {
-  font-size: 16px!important;
-}
